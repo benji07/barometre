@@ -2,6 +2,7 @@
     "name": "afup/barometre",
     "license": "MIT",
     "type": "project",
+    "description" : "Barometre des salaires de l'afup & Agence-e",
     "autoload": {
         "psr-0": { "": "src/" }
     },

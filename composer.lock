@@ -1,9 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "4474580a8184d8a36b2891a371b807e8",
+    "hash": "b03d7f3998122e0ce5a615fc666bd395",
     "packages": [
         {
             "name": "agallou/departements",
@@ -2379,9 +2380,7 @@
             "time": "2014-02-04 23:49:58"
         }
     ],
-    "aliases": [
-
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
         "knplabs/knp-menu-bundle": 20,
@@ -2390,7 +2389,5 @@
     "platform": {
         "php": ">=5.3.3"
     },
-    "platform-dev": [
-
-    ]
+    "platform-dev": []
 }

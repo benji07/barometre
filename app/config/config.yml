@@ -1,6 +1,5 @@
 imports:
     - { resource: parameters.yml }
-    - { resource: security.yml }
 
 framework:
     #esi:             ~
@@ -21,6 +20,7 @@ framework:
     session:
         # handler_id set to null will use default session handler from php.ini
         handler_id:  ~
+        name: afup_barometre
     fragments:       ~
     http_method_override: true
 
