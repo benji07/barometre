@@ -56,6 +56,6 @@ class CompanyTypeSalaryReport extends AbstractReport
     {
         $data = $this->getData();
 
-        return count($data['data']);
+        return count($data['data']) !== 0;
     }
 }
