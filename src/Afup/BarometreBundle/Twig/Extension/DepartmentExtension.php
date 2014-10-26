@@ -32,7 +32,7 @@ class DepartmentExtension extends \Twig_Extension
     public function getFilters()
     {
         return array(
-            'department_label' => new \Twig_Filter_Method($this, 'departmentLabel'),
+            new \Twig_SimpleFilter('department_label', [$this, 'departmentLabel']),
         );
     }
 

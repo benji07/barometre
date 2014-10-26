@@ -9,7 +9,7 @@ use Afup\BarometreBundle\Enums\SalarySatisfactionEnums;
 class Format2014 implements FormatInterface
 {
     /**
-     * @return array
+     * @return string[]
      */
     public function getColumns()
     {
@@ -46,17 +46,17 @@ class Format2014 implements FormatInterface
      */
     public function alterData(array $data)
     {
-        if ($data['experience'] == '2 à 5 ans') {
+        if ($data['experience'] === '2 à 5 ans') {
             $data['experience'] = "3 à 5 ans";
-        } elseif ($data['experience'] == '5 à 10 ans') {
+        } elseif ($data['experience'] === '5 à 10 ans') {
             $data['experience'] = "6 à 10 ans";
         }
 
         $data['annual_salary'] = $data['gross_annual_salary'] + $data['variable_annual_salary'];
 
-        if ($data['gender'] == 'Un homme' || $data['gender'] == 'Homme') {
+        if (in_array(['Un homme', 'Homme'], $data['gender'])) {
             $data['gender'] = 'Hommes';
-        } elseif ($data['gender'] == 'Une femme' || $data['gender'] == 'Femme') {
+        } elseif (in_array(['Une femme', 'Femme'], $data['gender'])) {
             $data['gender'] = 'Femmes';
         }
 
