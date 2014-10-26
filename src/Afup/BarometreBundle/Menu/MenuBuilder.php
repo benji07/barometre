@@ -44,6 +44,8 @@ class MenuBuilder
     {
         $menu = $this->factory->createItem('menu');
 
+        $menu->setChildrenAttribute('class', 'nav navbar-nav');
+
         $menu->addChild(
             'A propos du baromètre',
             [
