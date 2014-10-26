@@ -21,7 +21,7 @@ class PhpVersionReport extends AbstractReport
             ->setParameter(':minResult', $this->minResult)
             ->groupBy('response.phpVersion');
 
-        $this->data = $this->queryBuilder->execute();
+        $this->data = $this->queryBuilder->execute()->fetchAll();
 
     }
 
