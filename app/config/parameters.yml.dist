@@ -7,7 +7,7 @@ parameters:
     database_password: ~
 
     locale:            fr
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    secret:            ThisTokenIsSoSecretDontChangeIt
 
     ga_enabled: false
 
