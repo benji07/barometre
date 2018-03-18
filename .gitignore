@@ -16,6 +16,7 @@
 /vendor/
 /web/bundles/
 
+composer.phar
 /bower_components/
 /node_modules/
 /web/assets/
@@ -29,3 +30,4 @@
 /docker-compose.override.yml
 
 .php_cs.cache
+/.vagrant/

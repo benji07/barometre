@@ -1,54 +1,120 @@
-.PHONY: vendors data_dirs
+.SILENT:
+.PHONY: build test
 
-CURRENT_UID ?= $(shell id -u)
+## Colors
+COLOR_RESET   = \033[0m
+COLOR_INFO    = \033[32m
+COLOR_COMMENT = \033[33m
 
-init:
-	docker-compose run --rm cli /bin/bash -l -c "make vendors"
-	docker-compose run --rm cli /bin/bash -l -c "grunt"
-	docker-compose run --rm cli /bin/bash -l -c "php app/console doctrine:schema:update --force"
-	docker-compose run --rm cli /bin/bash -l -c "php -d "memory_limit=-1" app/console doctrine:fixtures:load --no-interaction --fixtures=src/Afup/BarometreBundle/DataTest/ORM/"
+## Help
+help:
+	printf "${COLOR_COMMENT}Usage:${COLOR_RESET}\n"
+	printf " make [target]\n\n"
+	printf "${COLOR_COMMENT}Available targets:${COLOR_RESET}\n"
+	awk '/^[a-zA-Z\-\_0-9\.@]+:/ { \
+		helpMessage = match(lastLine, /^## (.*)/); \
+		if (helpMessage) { \
+			helpCommand = substr($$1, 0, index($$1, ":")); \
+			helpMessage = substr(lastLine, RSTART + 3, RLENGTH); \
+			printf " ${COLOR_INFO}%-16s${COLOR_RESET} %s\n", helpCommand, helpMessage; \
+		} \
+	} \
+	{ lastLine = $$0 }' $(MAKEFILE_LIST)
 
-vendors: node_modules vendor .vendors/bundler bower_components
+###############
+# Environment #
+###############
 
-composer.phar:
-	$(eval EXPECTED_SIGNATURE = "$(shell wget -q -O - https://composer.github.io/installer.sig)")
-	$(eval ACTUAL_SIGNATURE = "$(shell php -r "copy('https://getcomposer.org/installer', 'composer-setup.php'); echo hash_file('SHA384', 'composer-setup.php');")")
-	@if [ "$(EXPECTED_SIGNATURE)" != "$(ACTUAL_SIGNATURE)" ]; then echo "Invalid signature"; exit 1; fi
-	php composer-setup.php
-	rm composer-setup.php
+## Setup environment & Install & Build application
+setup:
+	if [ -d  "./var/cache" ]; then rm -rf ./var/cache; fi;
+	if [ -d "./var/logs" ]; then rm -rf ./var/logs; fi;
+	if [ -d "./var/sessions" ]; then rm -rf ./var/sessions; fi;
+	vagrant up --no-provision
+	vagrant provision
+	vagrant ssh -- "cd /srv/app && make install && make build"
 
-vendor: composer.phar app/config/parameters.yml
-	php composer.phar install
+## Update environment
+update: export ANSIBLE_TAGS = manala.update
+update:
+	vagrant provision
 
-node_modules:
-	npm install
+## Update ansible
+update-ansible: export ANSIBLE_TAGS = manala.update
+update-ansible:
+	vagrant provision --provision-with ansible
 
-.vendors/bundler:
-	bundle install --path .vendors/bundler
+## Provision environment
+provision: export ANSIBLE_EXTRA_VARS = {"manala":{"update":false}}
+provision:
+	vagrant provision --provision-with app
 
-bower_components:
-	./node_modules/bower/bin/bower install --allow-root
+## Provision nginx
+provision-nginx: export ANSIBLE_TAGS = manala_nginx
+provision-nginx: provision
 
-app/config/parameters.yml:
-	cp app/config/parameters.yml.dist app/config/parameters.yml
+## Provision php
+provision-php: export ANSIBLE_TAGS = manala_php
+provision-php: provision
 
-docker-up: app/logs/.docker-build data_dirs
-	docker-compose up
+###########
+# Install #
+###########
 
-docker-build: app/logs/.docker-build
+## Install application
+install:
+	composer install --verbose
+	bin/console doctrine:database:create --if-not-exists
 
-app/logs/.docker-build: docker-compose.yml docker-compose.override.yml $(shell find docker/dockerfiles -type f)
-	docker-compose rm --force
-	CURRENT_UID=$(CURRENT_UID) docker-compose build
-	touch app/logs/.docker-build
+install@test: export SYMFONY_ENV = test
+install@test:
+	# Composer
+	composer install --verbose --no-progress --no-interaction
+	# Doctrine
+	bin/console doctrine:database:drop --force --if-exists
+	bin/console doctrine:database:create --if-not-exists
+	bin/console doctrine:schema:update --force
 
-data_dirs: docker/data docker/data/composer
+install@staging: export SYMFONY_ENV = prod
+install@staging:
+	# Composer
+	composer install --verbose --no-progress --no-interaction --prefer-dist --optimize-autoloader
+	# Symfony cache
+	bin/console cache:warmup --no-debug
+	# Doctrine migrations
+	bin/console doctrine:migrations:migrate --no-debug --no-interaction
 
-docker/data:
-	mkdir -p docker/data
+install@production: export SYMFONY_ENV = prod
+install@production:
+	# Composer
+	composer install --verbose --no-progress --no-interaction --prefer-dist --optimize-autoloader --no-dev
+	# Symfony cache
+	bin/console cache:warmup --no-debug
+	# Doctrine migrations
+	bin/console doctrine:migrations:migrate --no-debug --no-interaction
 
-docker/data/composer: docker/data
-	mkdir -p docker/data/composer
+##########
+# Build #
+##########
 
-docker-compose.override.yml:
-	cp docker-compose.override.yml-dist docker-compose.override.yml
+build:
+	if [ -f "gulpfile" ]; then gulp --dev; fi;
+build@staging:
+	if [ -f "gulpfile" ]; then gulp; fi;
+build@production:
+	if [ -f "gulpfile" ]; then gulp; fi;
+
+##########
+# Deploy #
+##########
+
+## Deploy application
+deploy@staging:
+	ansible-playbook ansible/deploy.yml --inventory-file=ansible/hosts --limit=deploy_staging
+
+deploy@production:
+	ansible-playbook ansible/deploy.yml --inventory-file=ansible/hosts --limit=deploy_production
+
+##########
+# Custom #
+##########
