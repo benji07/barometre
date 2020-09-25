@@ -13,7 +13,7 @@
         }
     },
     "require": {
-        "php": ">=7.0",
+        "php": ">=7.4",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
         "incenteev/composer-parameter-handler": "^2.0",
@@ -34,7 +34,8 @@
         "sonata-project/intl-bundle": "~2.2",
         "agallou/grunt-hash-assets-bundle": "0.1.0",
         "doctrine/migrations": "~1.0",
-        "doctrine/doctrine-migrations-bundle": "~1.0"
+        "doctrine/doctrine-migrations-bundle": "~1.0",
+        "symfony/webpack-encore-bundle": "^1.7"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
@@ -58,7 +59,7 @@
     "config": {
         "bin-dir": "bin",
         "platform": {
-            "php": "7.0.33"
+            "php": "7.4.10"
         }
     },
     "extra": {

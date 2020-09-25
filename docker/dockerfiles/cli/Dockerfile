@@ -1,9 +1,9 @@
-FROM php:7.0
+FROM php:7.4
 
 RUN apt-get update && apt-get install -y build-essential
 RUN apt-get update && apt-get install -y gnupg
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
-RUN apt-get update && apt-get install -y nodejs npm
+RUN apt-get update && apt-get install -y nodejs
 
 RUN npm install -g grunt-cli
 
@@ -13,7 +13,8 @@ RUN apt-get update -q -y \
         libicu-dev \
         bash-completion \
         imagemagick \
-        zlib1g-dev
+        zlib1g-dev \
+        libzip-dev
 
 RUN docker-php-ext-install intl
 RUN docker-php-ext-install zip

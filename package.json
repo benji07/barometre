@@ -2,9 +2,12 @@
   "name": "afupbarometre",
   "version": "0.1.0",
   "devDependencies": {
+    "@symfony/webpack-encore": "^0.30.0",
     "bootstrap-sass": "^3.3.7",
     "colorbrewer": "^1.0.0",
+    "core-js": "^3.0.0",
     "d3": "^2.10.3",
+    "favicons-webpack-plugin": "^4.2.0",
     "font-awesome": "4.6.3",
     "github-fork-ribbon-css": "^0.2.1",
     "grunt": "~0.4.2",
@@ -27,12 +30,21 @@
     "grunt-webfont-svg-extractor": "0.0.2",
     "highchartTable": "git+https://github.com/highchartTable/jquery-highchartTable-plugin.git",
     "highcharts": "^5.0.0",
+    "html-webpack-plugin": "^4.5.0",
     "jquery": "^1.11.3",
     "node-sass": "^4.7.2",
+    "regenerator-runtime": "^0.13.2",
     "sass-lint": "^1.12.1",
     "select2": "4.0.5",
     "select2-bootstrap-theme": "0.1.0-beta.10",
     "tablesorter": "2.18.4",
-    "tarteaucitronjs": "^1.2.0"
+    "tarteaucitronjs": "^1.2.0",
+    "webpack-notifier": "^1.6.0"
+  },
+  "scripts": {
+    "dev-server": "encore dev-server",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production --progress"
   }
 }
