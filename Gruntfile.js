@@ -81,17 +81,13 @@ module.exports = function(grunt) {
           'node_modules/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js',
           'node_modules/bootstrap-sass/assets/javascripts/bootstrap/transition.js',
           'node_modules/bootstrap-sass/assets/javascripts/bootstrap/collapse.js',
-          'node_modules/select2/dist/js/select2.js',
-          'node_modules/select2/dist/js/i18n/fr.js',
           'node_modules/highcharts/highcharts.js',
           'node_modules/highchartTable/jquery.highchartTable.js',
-          'node_modules/tablesorter/js/jquery.tablesorter.js',
-          'node_modules/tablesorter/js/jquery.tablesorter.widgets.js',
+          // 'node_modules/tablesorter/js/jquery.tablesorter.js',
+          // 'node_modules/tablesorter/js/jquery.tablesorter.widgets.js',
           'node_modules/d3/d3.v2.js',
-          'src/Afup/BarometreBundle/Resources/assets/js/tablesorter.js',
-          'src/Afup/BarometreBundle/Resources/assets/js/select2.js',
+          // 'src/Afup/BarometreBundle/Resources/assets/js/tablesorter.js',
           'src/Afup/BarometreBundle/Resources/assets/js/charts.js',
-          'src/Afup/BarometreBundle/Resources/assets/js/filters.js',
           'src/Afup/BarometreBundle/Resources/assets/js/map.js'
         ],
         dest: 'var/cache/grunt/main.js'
@@ -146,53 +142,8 @@ module.exports = function(grunt) {
         ],
         tasks: ['dev']
       },
-      sasslint : {
-        files: [
-            'src/Afup/BarometreBundle/Resources/assets/sass/*',
-            'src/Afup/BarometreBundle/Resources/assets/sass/ui/*'
-        ],
-        tasks: ['sasslint']
-      },
       gruntfile: { files: ['Gruntfile.js'], tasks: ['dev']  }
     },
-
-    jshint: {
-      options: {
-        jshintrc: true
-      },
-      src: ['src/Afup/BarometreBundle/Resources/assets/js/*']
-    },
-
-    sasslint: {
-      options: {
-          configFile: ".sass-lint.yml"
-      },
-      target: ['src/Afup/BarometreBundle/Resources/assets/sass/**']
-    },
-
-    githooks: {
-      all: {
-        'pre-commit': 'test lint'
-      }
-    },
-
-    shell: {
-        atoum: {
-            options: {
-                stdout: true,
-                failOnError: true
-            },
-            command: './bin/atoum'
-        },
-        coke: {
-            options: {
-                stdout: true,
-                failOnError: true
-            },
-            command: './bin/coke'
-        }
-    },
-
   });
 
   grunt.loadNpmTasks('grunt-contrib-concat');
@@ -204,16 +155,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-css-url-rewrite');
   grunt.loadNpmTasks('grunt-filerev');
-  grunt.loadNpmTasks('grunt-githooks');
   grunt.loadNpmTasks('grunt-shell');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-webfont');
   grunt.loadNpmTasks('grunt-webfont-svg-extractor');
 
-
-  grunt.registerTask('test', ['shell:atoum']);
-  grunt.registerTask('lint', ['shell:coke', 'jshint', 'sasslint']);
   grunt.registerTask('common', ['clean', 'copy', 'webfont_svg_extractor', 'webfont', 'sass', 'concat']);
   grunt.registerTask('dev', ['common', 'filerev']);
   grunt.registerTask('default', ['common', 'uglify', 'cssmin', 'filerev']);

@@ -5,7 +5,7 @@
 
         <title>{% block title 'Baromètre AFUP' %}</title>
 
-        {% include 'favicons/favicons.html' %}
+        {% include 'favicons/favicons.html.twig' %}
         {% include 'tarteaucitron.twig' %}
 
         {% block meta %}
@@ -14,7 +14,8 @@
         {% endblock meta %}
 
         {% block stylesheets %}
-        <link rel="stylesheet" href="{{ grunt_asset('css/main.css') }}" />
+            {{ encore_entry_link_tags('app') }}
+            <link rel="stylesheet" href="{{ grunt_asset('css/main.css') }}" />
         {% endblock stylesheets %}
         <link rel="stylesheet" href="{{ global_menu_prefix }}/templates/site/css/global-menu.css" media="all" />
         {% block ga '' %}
@@ -28,6 +29,7 @@
         </div>
         {% block body '' %}
         {% block body_javascript %}
+            {{ encore_entry_script_tags('app') }}
             <script src="{{ grunt_asset('js/main.js') }}"></script>
         {% endblock body_javascript %}
         {% include 'github_ribbon.twig' %}
