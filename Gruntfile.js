@@ -83,10 +83,7 @@ module.exports = function(grunt) {
           'node_modules/bootstrap-sass/assets/javascripts/bootstrap/collapse.js',
           'node_modules/highcharts/highcharts.js',
           'node_modules/highchartTable/jquery.highchartTable.js',
-          // 'node_modules/tablesorter/js/jquery.tablesorter.js',
-          // 'node_modules/tablesorter/js/jquery.tablesorter.widgets.js',
           'node_modules/d3/d3.v2.js',
-          // 'src/Afup/BarometreBundle/Resources/assets/js/tablesorter.js',
           'src/Afup/BarometreBundle/Resources/assets/js/charts.js',
           'src/Afup/BarometreBundle/Resources/assets/js/map.js'
         ],
