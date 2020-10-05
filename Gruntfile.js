@@ -78,11 +78,6 @@ module.exports = function(grunt) {
         nonull: true,
         src: [
           'node_modules/jquery/dist/jquery.js',
-          'node_modules/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js',
-          'node_modules/bootstrap-sass/assets/javascripts/bootstrap/transition.js',
-          'node_modules/bootstrap-sass/assets/javascripts/bootstrap/collapse.js',
-          'node_modules/highcharts/highcharts.js',
-          'node_modules/highchartTable/jquery.highchartTable.js',
           'node_modules/d3/d3.v2.js',
           'src/Afup/BarometreBundle/Resources/assets/js/charts.js',
           'src/Afup/BarometreBundle/Resources/assets/js/map.js'
