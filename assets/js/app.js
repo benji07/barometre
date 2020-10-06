@@ -146,9 +146,6 @@ $('table.highchart')
 
 // map
 (function () {
-    var svg;
-    var path;
-
     var tooltip = d3.select("body")
         .append("div")
         .attr("class", "tooltip")
@@ -157,17 +154,19 @@ $('table.highchart')
     function init() {
 
         if (1 !== $('#map').length) {
-            console.log('not found');
             return;
         }
 
-        var xy = d3.geoAlbers()
-            // .center([2.6, 46.5])
-            // .parallels([44, 49])
-            // .scale(10)
-            // .translate([250, 250])
+
+        var svg = d3.select("#map svg");
+
+        var gfg = d3.geoAlbers()
+            .rotate([-4, 0])
+            .center([2.6, 46.5])
+            .parallels([40, 50])
+            .scale(2600)
+            .translate([380, 250])
         ;
-        path = d3.geoPath(xy);//.projection(xy);
 
         svg = d3.select("#map svg")
             .append("g");
@@ -183,17 +182,19 @@ $('table.highchart')
 
         d3
             .json(getTypeInfos().file)
-            .then(function (json) {
+            .then(function (data) {
                 bg.selectAll("path")
-                    .data(json.features)
+                    .data(data.features)
                     .enter().append("path")
-                    .attr("d", path);
+                    .attr("d", d3.geoPath(gfg));
                 dataLayer.selectAll("path")
-                    .data(json.features)
+                    .data(data.features)
                     .enter().append("path")
-                    .attr("d", path);
+                    .attr("d", d3.geoPath(gfg));
+
                 recomputeValues();
-            });
+            })
+        ;
     }
 
     function getTypeInfos()
