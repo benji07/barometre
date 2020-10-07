@@ -6,19 +6,19 @@
 @import "bootstrap";
 
 // Select2
-@import "vendor/select2";
-@import "vendor/select2-bootstrap";
+@import "~select2";
+@import "~select2-bootstrap-theme/src/select2-bootstrap.scss";
 
 // Colorbrewer
-@import "vendor/colorbrewer";
+@import "~colorbrewer";
 
 //github ribbon
-@import "vendor/github-fork-ribbon/gh-fork-ribbon";
+@import "~github-fork-ribbon-css/gh-fork-ribbon.css";
 
 // tarteaucitron
 @import "_tarteaucitron.scss";
 
-@import "generated/icons";
+@import "base/fonts";
 
 // Barometre
 @import "global";

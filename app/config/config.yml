@@ -62,9 +62,6 @@ knp_menu:
 afup_barometre:
     min_result: "%min_result%"
 
-grunt_hash_assets:
-    assets_base_path: "%web_root%/assets"
-
 sensio_framework_extra:
     router:
         annotations: false

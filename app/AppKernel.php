@@ -17,7 +17,6 @@ class AppKernel extends Kernel
             new Afup\BarometreBundle\AfupBarometreBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Sonata\IntlBundle\SonataIntlBundle(),
-            new Agallou\GruntHashAssetsBundle\GruntHashAssetsBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Symfony\WebpackEncoreBundle\WebpackEncoreBundle(),
         );

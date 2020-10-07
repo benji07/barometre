@@ -1,4 +1,4 @@
-import '../css/app.css';
+import '../css/main.scss';
 
 import $ from 'jquery';
 import 'select2';

@@ -32,7 +32,6 @@
         "knplabs/knp-menu-bundle": "~2.0",
         "knplabs/knp-menu": "~2.1",
         "sonata-project/intl-bundle": "~2.2",
-        "agallou/grunt-hash-assets-bundle": "0.1.0",
         "doctrine/migrations": "~1.0",
         "doctrine/doctrine-migrations-bundle": "~1.0",
         "symfony/webpack-encore-bundle": "^1.7"

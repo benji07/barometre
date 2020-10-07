@@ -56,7 +56,7 @@ Encore
     })
 
     // enables Sass/SCSS support
-    //.enableSassLoader()
+    .enableSassLoader()
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
@@ -68,6 +68,11 @@ Encore
     // uncomment if you're having problems with a jQuery plugin
     .autoProvidejQuery()
 
+    .copyFiles({
+        from: './assets/images',
+        to: 'images/[path][name].[hash:8].[ext]',
+    })
+
     // uncomment if you use API Platform Admin (composer req api-admin)
     //.enableReactPreset()
     //.addEntry('admin', './assets/js/admin.js')
@@ -78,7 +83,7 @@ Encore
     }),)
     .addPlugin(
         new FaviconsWebpackPlugin({
-            logo: './assets/images/barometre-logo.svg',
+            logo: './assets/images/logos/barometre-logo.svg',
             mode: 'webapp',
             devMode: 'webapp',
             inject: true,
