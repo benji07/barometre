@@ -20,7 +20,6 @@
     "select2": "^4.0.13",
     "select2-bootstrap-theme": "0.1.0-beta.10",
     "tablesorter": "2.18.4",
-    "tarteaucitronjs": "^1.2.0",
     "webpack-notifier": "^1.6.0"
   },
   "scripts": {

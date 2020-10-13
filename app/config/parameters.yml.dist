@@ -14,7 +14,7 @@ parameters:
     locale:            fr
     secret:            576cb917df25a75913295cedb90e2d8481868925fff
 
-    ga_enabled: false
+    google_analytics_id: ~ # UA-33922307-2
 
     min_result:        5
 

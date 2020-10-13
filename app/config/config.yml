@@ -33,7 +33,7 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     globals:
-        ga_enabled: "%ga_enabled%"
+        GOOGLE_ANALYTICS_ID: "%google_analytics_id%"
         global_menu_prefix: "%global_menu_prefix%"
 
 # Doctrine Configuration
