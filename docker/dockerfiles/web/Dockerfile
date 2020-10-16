@@ -1,8 +1,9 @@
-FROM php:7.0-apache
+FROM php:7.4-apache
 
-RUN apt-get update && apt-get install -y zlibc zlib1g zlib1g-dev
+RUN apt-get update && apt-get install -y zlibc zlib1g zlib1g-dev libzip-dev
 RUN echo "date.timezone=Europe/Paris" >> "/usr/local/etc/php/php.ini"
 RUN docker-php-ext-install pdo_mysql
+RUN apt-get update && apt-get install -y libonig-dev
 RUN docker-php-ext-install mbstring
 RUN apt-get update && apt-get install -y libicu-dev build-essential
 RUN docker-php-ext-install intl

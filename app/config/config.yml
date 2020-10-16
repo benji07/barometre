@@ -24,12 +24,16 @@ framework:
     fragments:       ~
     http_method_override: true
 
+    assets:
+        json_manifest_path: '%kernel.project_dir%/web/build/manifest.json'
+
+
 # Twig Configuration
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     globals:
-        ga_enabled: "%ga_enabled%"
+        GOOGLE_ANALYTICS_ID: "%google_analytics_id%"
         global_menu_prefix: "%global_menu_prefix%"
 
 # Doctrine Configuration
@@ -58,9 +62,32 @@ knp_menu:
 afup_barometre:
     min_result: "%min_result%"
 
-grunt_hash_assets:
-    assets_base_path: "%web_root%/assets"
-
 sensio_framework_extra:
     router:
         annotations: false
+
+webpack_encore:
+    # The path where Encore is building the assets - i.e. Encore.setOutputPath()
+    output_path: '%kernel.project_dir%/web/build'
+      # If multiple builds are defined (as shown below), you can disable the default build:
+      # output_path: false
+
+      # if using Encore.enableIntegrityHashes() and need the crossorigin attribute (default: false, or use 'anonymous' or 'use-credentials')
+      # crossorigin: 'anonymous'
+
+      # preload all rendered script and link tags automatically via the http2 Link header
+      # preload: true
+
+      # Throw an exception if the entrypoints.json file is missing or an entry is missing from the data
+      # strict_mode: false
+
+      # if you have multiple builds:
+      # builds:
+      # pass "frontend" as the 3rg arg to the Twig functions
+      # {{ encore_entry_script_tags('entry1', null, 'frontend') }}
+
+    # frontend: '%kernel.project_dir%/public/frontend/build'
+
+    # Cache the entrypoints.json (rebuild Symfony's cache when entrypoints.json changes)
+    # Put in config/packages/prod/webpack_encore.yaml
+    # cache: true
