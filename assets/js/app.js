@@ -2,7 +2,7 @@ import '../css/main.scss';
 
 import $ from 'jquery';
 import 'select2';
-import Map from './map';
+import RegionMap from './map';
 import './chart';
 import './tablesorter';
 import 'bootstrap-sass/assets/javascripts/bootstrap/dropdown';
@@ -30,4 +30,4 @@ $('.filter-toggler', '.form-group').click(function (e) {
     e.preventDefault();
 });
 
-new Map('#map');
+new RegionMap('#map');

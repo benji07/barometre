@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 import $ from "jquery";
 
-export default class Map {
+export default class RegionMap {
     constructor(selector) {
         this.container = d3.select(selector);
 
