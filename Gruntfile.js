@@ -1,63 +1,43 @@
+const sass = require('node-sass');
+
 module.exports = function(grunt) {
 
   grunt.initConfig({
 
-    clean: ["web/assets", "app/cache/grunt", "src/Afup/BarometreBundle/Resources/assets/sass/vendor/"],
+    clean: ["public/assets", "var/cache/grunt", "assets/sass/vendor/"],
 
     copy: {
       main: {
         files: [
-          {expand: true, cwd: 'bower_components/select2/', src: ['**.png'], dest: 'web/assets/images/select2/', filter: 'isFile'},
-          {expand: true, cwd: 'bower_components/select2/', src: ['**.gif'], dest: 'web/assets/images/select2/', filter: 'isFile'},
-          {expand: true, cwd: 'bower_components/bootstrap-sass-official/vendor/assets/stylesheets/', src: ['**'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'},
-          {expand: true, cwd: 'bower_components/select2/', src: ['select2-bootstrap.scss'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'},
-          {expand: false, src: 'bower_components/jquery.tablesorter/css/theme.bootstrap.css', dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/tablesorter.theme.bootstrap.scss'},
-          {expand: false, src: 'bower_components/colorbrewer/colorbrewer.css', dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/colorbrewer.scss'}
+          {expand: true, cwd: 'node_modules/bootstrap-sass/assets/stylesheets/', src: ['**'], dest: 'assets/sass/vendor/'},
+          {expand: true, cwd: 'node_modules/select2/dist/css/', src: ['select2.css'], dest: 'assets/sass/vendor/'},
+          {expand: true, cwd: 'node_modules/select2-bootstrap-theme/src/', src: ['select2-bootstrap.scss'], dest: 'assets/sass/vendor/'},
+          {expand: false, src: 'node_modules/tablesorter/dist/css/theme.bootstrap.css', dest: 'assets/sass/vendor/tablesorter.theme.bootstrap.scss'},
+          {expand: false, src: 'node_modules/colorbrewer/colorbrewer.css', dest: 'assets/sass/vendor/colorbrewer.scss'},
+          {expand: false, src: 'node_modules/github-fork-ribbon-css/gh-fork-ribbon.css',  dest: 'assets/sass/vendor/github-fork-ribbon/gh-fork-ribbon.scss'},
+          {expand: true, cwd: 'node_modules/tarteaucitronjs/', src: ['*.js', 'lang/tarteaucitron.fr.js'], dest: 'public/js/tarteaucitron/'},
         ]
       }
     },
 
-    cssUrlRewrite: {
-      select2: {
-          src: 'bower_components/select2/select2.css',
-          dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/select2.scss',
-          options: {
-            rewriteUrl: function(url, options, dataURI) {
-              return '/assets/images/select2/' + url.replace('bower_components/select2/', '');
-            }
-          }
-      },
-      select2bootstrap: {
-          src: 'bower_components/select2-bootstrap3-css/lib/select2-bootstrap.scss',
-          dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/select2-bootstrap.scss',
-      }
-    },
-
     webfont_svg_extractor: {
-        glyphicon: {
-            options: {
-                fontPath: "bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg",
-                cssPath: "bower_components/bootstrap/dist/css/bootstrap.css",
-                outputDir: "app/cache/grunt/font/",
-                preset: "glyphicon",
-                icons: [
-                    "remove",
-                    "chevron-up",
-                    "chevron-down"
-                ]
-            }
-        },
         fontawesome: {
             options: {
-                fontPath: "bower_components/fontawesome/fonts/fontawesome-webfont.svg",
-                cssPath: "bower_components/fontawesome/css/font-awesome.css",
-                outputDir: "app/cache/grunt/font/",
+                fontPath: "node_modules/font-awesome/fonts/fontawesome-webfont.svg",
+                cssPath: "node_modules/font-awesome/css/font-awesome.css",
+                outputDir: "var/cache/grunt/font/",
                 preset: "fontawesome",
                 icons: [
+                    "chevron-up",
+                    "chevron-down",
+                    "remove",
                     "smile-o",
                     "frown-o",
                     "male",
-                    "female"
+                    "female",
+                    "apple",
+                    "linux",
+                    "windows"
                 ]
             }
         }
@@ -65,9 +45,9 @@ module.exports = function(grunt) {
 
     webfont: {
         icons: {
-            src: 'app/cache/grunt/font/*.svg',
-            dest: 'web/assets/fonts',
-            destCss: 'src/Afup/BarometreBundle/Resources/assets/sass/generated',
+            src: 'var/cache/grunt/font/*.svg',
+            dest: 'public/assets/fonts',
+            destCss: 'assets/sass/generated',
             options: {
                 templateOptions: {
                     baseClass: 'icon',
@@ -75,21 +55,25 @@ module.exports = function(grunt) {
                 },
                 relativeFontPath: '/assets/fonts/',
                 htmlDemo: false,
+                fontHeight: 1024,
                 engine: 'node',
-                stylesheet: 'scss'
+                stylesheet: 'scss',
+                types: 'eot,woff,ttf,svg'
             }
         }
     },
 
 
     sass: {
-       dist: {
+       options: {
+           implementation: sass,
+       },
+       dist: {
           options: {
-            style: 'expanded',
-            bundleExec: true
+            style: 'expanded'
           },
-          src: 'src/Afup/BarometreBundle/Resources/assets/sass/main.scss',
-          dest : 'app/cache/grunt/main.css'
+          src: 'assets/sass/main.scss',
+          dest : 'var/cache/grunt/main.css'
        }
     },
 
@@ -100,24 +84,24 @@ module.exports = function(grunt) {
         },
         nonull: true,
         src: [
-          'bower_components/jquery/dist/jquery.js',
-          'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js',
-          'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js',
-          'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js',
-          'bower_components/select2/select2.js',
-          'bower_components/select2/select2_locale_fr.js',
-          'bower_components/highcharts/highcharts.js',
-          'bower_components/highchartTable/jquery.highchartTable.js',
-          'bower_components/jquery.tablesorter/js/jquery.tablesorter.js',
-          'bower_components/jquery.tablesorter/js/jquery.tablesorter.widgets.js',
-          'bower_components/d3/d3.v2.js',
-          'src/Afup/BarometreBundle/Resources/assets/js/tablesorter.js',
-          'src/Afup/BarometreBundle/Resources/assets/js/select2.js',
-          'src/Afup/BarometreBundle/Resources/assets/js/charts.js',
-          'src/Afup/BarometreBundle/Resources/assets/js/filters.js',
-          'src/Afup/BarometreBundle/Resources/assets/js/map.js'
+          'node_modules/jquery/dist/jquery.js',
+          'node_modules/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js',
+          'node_modules/bootstrap-sass/assets/javascripts/bootstrap/transition.js',
+          'node_modules/bootstrap-sass/assets/javascripts/bootstrap/collapse.js',
+          'node_modules/select2/dist/js/select2.js',
+          'node_modules/select2/dist/js/i18n/fr.js',
+          'node_modules/highcharts/highcharts.js',
+          'node_modules/highchartTable/jquery.highchartTable.js',
+          'node_modules/tablesorter/js/jquery.tablesorter.js',
+          'node_modules/tablesorter/js/jquery.tablesorter.widgets.js',
+          'node_modules/d3/d3.v2.js',
+          'assets/js/tablesorter.js',
+          'assets/js/select2.js',
+          'assets/js/charts.js',
+          'assets/js/filters.js',
+          'assets/js/map.js'
         ],
-        dest: 'app/cache/grunt/main.js'
+        dest: 'var/cache/grunt/main.js'
       }
     },
      uglify: {
@@ -138,46 +122,43 @@ module.exports = function(grunt) {
         }
       }
     },
-
-    hash: {
+    filerev: {
       options: {
-         hashLength: 8,
-         hashFunction: function(source, encoding){
-              return require('crypto').createHash('sha1').update(source, encoding).digest('hex');
-         }
+        algorithm: 'sha1',
+        length: 8
       },
       js: {
-          src: 'app/cache/grunt/main.js',
-          dest: 'web/assets/js/'
+          src: 'var/cache/grunt/main.js',
+          dest: 'public/assets/js/'
       },
       css: {
-          src: 'app/cache/grunt/main.css',
-          dest: 'web/assets/css/'
+        src: 'var/cache/grunt/main.css',
+        dest: 'public/assets/css/'
       },
       logos: {
-        src: 'src/Afup/BarometreBundle/Resources/assets/logos/*',
-        dest: 'web/assets/logos/'
+        src: 'assets/logos/*',
+        dest: 'public/assets/logos/'
       }
     },
 
     watch: {
       js: {
-        files: ['src/Afup/BarometreBundle/Resources/assets/js/**'],
+        files: ['assets/js/**'],
         tasks: ['dev']
       },
       sass : {
         files: [
-          'src/Afup/BarometreBundle/Resources/assets/sass/*',
-          'src/Afup/BarometreBundle/Resources/assets/sass/ui/*'
+          'assets/sass/*',
+          'assets/sass/ui/*'
         ],
         tasks: ['dev']
       },
       sasslint : {
         files: [
-            'src/Afup/BarometreBundle/Resources/assets/sass/*',
-            'src/Afup/BarometreBundle/Resources/assets/sass/ui/*'
+            'assets/sass/*',
+            'assets/sass/ui/*'
         ],
-        tasks: ['scsslint']
+        tasks: ['sasslint']
       },
       gruntfile: { files: ['Gruntfile.js'], tasks: ['dev']  }
     },
@@ -186,17 +167,14 @@ module.exports = function(grunt) {
       options: {
         jshintrc: true
       },
-      src: ['src/Afup/BarometreBundle/Resources/assets/js/*']
+      src: ['assets/js/*']
     },
 
-    scsslint: {
+    sasslint: {
       options: {
-        bundleExec: true,
-        config: ".scss-lint.yml"
+          configFile: ".sass-lint.yml"
       },
-      main: {
-          src: ['src/Afup/BarometreBundle/Resources/assets/sass/**']
-      }
+      target: ['assets/sass/**']
     },
 
     githooks: {
@@ -222,26 +200,27 @@ module.exports = function(grunt) {
         }
     }
   });
+
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-css-url-rewrite');
-  grunt.loadNpmTasks('grunt-hash');
+  grunt.loadNpmTasks('grunt-filerev');
   grunt.loadNpmTasks('grunt-githooks');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-scss-lint');
+  grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-webfont');
   grunt.loadNpmTasks('grunt-webfont-svg-extractor');
 
   grunt.registerTask('test', ['shell:atoum']);
-  grunt.registerTask('lint', ['shell:coke', 'jshint', 'scsslint']);
-  grunt.registerTask('common', ['clean', 'copy', 'cssUrlRewrite', 'webfont_svg_extractor', 'webfont', 'sass', 'concat']);
-  grunt.registerTask('dev', ['common', 'hash']);
-  grunt.registerTask('default', ['common', 'uglify', 'cssmin', 'hash']);
+  grunt.registerTask('lint', ['shell:coke', 'jshint', 'sasslint']);
+  grunt.registerTask('common', ['clean', 'copy', 'webfont_svg_extractor', 'webfont', 'sass', 'concat']);
+  grunt.registerTask('dev', ['common', 'filerev']);
+  grunt.registerTask('default', ['common', 'uglify', 'cssmin', 'filerev']);
 
 };

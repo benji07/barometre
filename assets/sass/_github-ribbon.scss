@@ -1,0 +1,9 @@
+.github-fork-ribbon {
+  &:before {
+    background-color: $afup-blue;
+  }
+
+  &:before, &:after {
+    box-sizing: content-box;
+  }
+}

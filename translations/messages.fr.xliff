@@ -1,0 +1,475 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="messages.fr.xliff">
+        <body>
+            <trans-unit id="menu.about">
+                <source>menu.about</source>
+                <target>A propos du baromètre</target>
+            </trans-unit>
+            <trans-unit id="menu.survey">
+                <source>menu.survey</source>
+                <target>Questionnaire 2025</target>
+            </trans-unit>
+            <trans-unit id="menu.result2018">
+                <source>menu.result2018</source>
+                <target>Résultats 2018</target>
+            </trans-unit>
+            <trans-unit id="menu.result2019">
+                <source>menu.result2019</source>
+                <target>Résultats 2019</target>
+            </trans-unit>
+            <trans-unit id="menu.result2020">
+                <source>menu.result2020</source>
+                <target>Résultats 2020</target>
+            </trans-unit>
+            <trans-unit id="menu.result2021">
+                <source>menu.result2021</source>
+                <target>Résultats 2021</target>
+            </trans-unit>
+            <trans-unit id="menu.result2022">
+                <source>menu.result2022</source>
+                <target>Résultats 2022</target>
+            </trans-unit>
+            <trans-unit id="menu.result2023">
+                <source>menu.result2023</source>
+                <target>Résultats 2023</target>
+            </trans-unit>
+            <trans-unit id="menu.result2024">
+                <source>menu.result2024</source>
+                <target>Résultats 2024</target>
+            </trans-unit>
+            <trans-unit id="menu.result2025">
+                <source>menu.result2025</source>
+                <target>Résultats 2025</target>
+            </trans-unit>
+            <trans-unit id="menu.results">
+                <source>menu.results</source>
+                <target>Résultats détaillés</target>
+            </trans-unit>
+            <trans-unit id="menu.press_review">
+                <source>menu.press_review</source>
+                <target>Revue de presse</target>
+            </trans-unit>
+            <trans-unit id="filter.company_size">
+                <source>filter.company_size</source>
+                <target>Taille de l'entreprise</target>
+            </trans-unit>
+            <trans-unit id="filter.company_type">
+                <source>filter.company_type</source>
+                <target>Type d'entreprise</target>
+            </trans-unit>
+            <trans-unit id="filter.php_version">
+                <source>filter.php_version</source>
+                <target>Version de PHP</target>
+            </trans-unit>
+            <trans-unit id="filter.salary">
+                <source>filter.salary</source>
+                <target>Salaire brut</target>
+            </trans-unit>
+            <trans-unit id="filter.salary.min">
+                <source>filter.salary.min</source>
+                <target>Minimum</target>
+            </trans-unit>
+            <trans-unit id="filter.salary.max">
+                <source>filter.salary.max</source>
+                <target>Maximum</target>
+            </trans-unit>
+            <trans-unit id="filter.age">
+                <source>filter.age</source>
+                <target>Age</target>
+            </trans-unit>
+            <trans-unit id="filter.age.min">
+                <source>filter.age.min</source>
+                <target>Minimum</target>
+            </trans-unit>
+            <trans-unit id="filter.age.max">
+                <source>filter.age.max</source>
+                <target>Maximum</target>
+            </trans-unit>
+            <trans-unit id="filter.certification">
+                <source>filter.certification</source>
+                <target>Certifications</target>
+            </trans-unit>
+            <trans-unit id="filter.speciality">
+                <source>filter.speciality</source>
+                <target>Spécialités</target>
+            </trans-unit>
+            <trans-unit id="filter.department">
+                <source>filter.department</source>
+                <target>Département</target>
+            </trans-unit>
+            <trans-unit id="filter.district">
+                <source>filter.district</source>
+                <target>Region</target>
+            </trans-unit>
+            <trans-unit id="filter.experience">
+                <source>filter.experience</source>
+                <target>Expérience</target>
+            </trans-unit>
+            <trans-unit id="filter.campaign">
+                <source>filter.campaign</source>
+                <target>Année</target>
+            </trans-unit>
+            <trans-unit id="filter.salary_satisfaction">
+                <source>filter.salary_satisfaction</source>
+                <target>Satisfaction de la rémunération</target>
+            </trans-unit>
+            <trans-unit id="filter.job_title">
+                <source>filter.job_title</source>
+                <target>Intitulé du poste</target>
+            </trans-unit>
+            <trans-unit id="filter.gender">
+                <source>filter.gender</source>
+                <target>Genre</target>
+            </trans-unit>
+            <trans-unit id="filter.status">
+                <source>filter.status</source>
+                <target>Statut</target>
+            </trans-unit>
+            <trans-unit id="filter.retraining">
+                <source>filter.retraining</source>
+                <target>Reconversion</target>
+            </trans-unit>
+            <trans-unit id="filter.meetup_participation">
+                <source>filter.meetup_participation</source>
+                <target>Participation à des meetups</target>
+            </trans-unit>
+            <trans-unit id="filter.remote_work">
+                <source>filter.remote_work</source>
+                <target>Travail à distance</target>
+            </trans-unit>
+            <trans-unit id="filter.use_generative_ai">
+                <source>filter.use_generative_ai</source>
+                <target>Utilisation de l'ia générative</target>
+            </trans-unit>
+            <trans-unit id="filter.submit">
+                <source>filter.submit</source>
+                <target>Filtrer</target>
+            </trans-unit>
+            <trans-unit id="report.use_generative_ai.label">
+                <source>report.use_generative_ai.label</source>
+                <target>Utilisez-vous l’IA générative pour développer vos projets?</target>
+            </trans-unit>
+            <trans-unit id="report.include_ai_in_project.label">
+                <source>report.include_ai_in_project.label</source>
+                <target>Vos projets intègrent-ils des fonctionnalités liées à l'IA générative?</target>
+            </trans-unit>
+            <trans-unit id="report.company_departement.label">
+                <source>report.company_department.label</source>
+                <target>Répartition géographique</target>
+            </trans-unit>
+            <trans-unit id="report.company_county.label">
+                <source>report.company_county.label</source>
+                <target>Répartition géographique</target>
+            </trans-unit>
+            <trans-unit id="report.company_size.label">
+                <source>report.company_size.label</source>
+                <target>Distribution des tailles d'entreprises</target>
+            </trans-unit>
+            <trans-unit id="report.company_type.label">
+                <source>report.company_type.label</source>
+                <target>Distribution des types d'entreprises</target>
+            </trans-unit>
+            <trans-unit id="report.job_title.label">
+                <source>report.job_title.label</source>
+                <target>Distribution par intitulé de poste</target>
+            </trans-unit>
+            <trans-unit id="report.view.job_title">
+                <source>report.view.job_title</source>
+                <target>Initulé de poste</target>
+            </trans-unit>
+            <trans-unit id="report.view.age">
+                <source>report.view.age</source>
+                <target>Âge</target>
+            </trans-unit>
+            <trans-unit id="report.view.retraining">
+                <source>report.view.retraining</source>
+                <target>Venez-vous d'une reconversion ?</target>
+            </trans-unit>
+            <trans-unit id="report.status.label">
+                <source>report.status.label</source>
+                <target>Distribution des statuts</target>
+            </trans-unit>
+            <trans-unit id="report.status_evolution.label">
+                <source>report.status_evolution.label</source>
+                <target>Évolution de la distribution des statuts</target>
+            </trans-unit>
+            <trans-unit id="report.salary.label">
+                <source>report.salary.label</source>
+                <target>Distribution des salaires</target>
+            </trans-unit>
+            <trans-unit id="report.age.label">
+                <source>report.age.label</source>
+                <target>Distribution de l'âge des répondants</target>
+            </trans-unit>
+            <trans-unit id="report.leave_job.label">
+                <source>report.leave_job.label</source>
+                <target>Avez-vous cherché à changer de poste en cette année ?</target>
+            </trans-unit>
+            <trans-unit id="report.experience_in_current_job.label">
+                <source>report.experience_in_current_job.label</source>
+                <target>Ancienneté dans l'entreprise</target>
+            </trans-unit>
+            <trans-unit id="report.retraining.label">
+                <source>report.retraining.label</source>
+                <target>Venez-vous d'une reconversion ?</target>
+            </trans-unit>
+            <trans-unit id="report.retraining_evolution.label">
+                <source>report.retraining_evolution.label</source>
+                <target>Évolution de la distribution des reconversion</target>
+            </trans-unit>
+            <trans-unit id="report.salary_evolution.label">
+                <source>report.salary_evolution.label</source>
+                <target>Évolution des salaires</target>
+            </trans-unit>
+            <trans-unit id="report.meetup_participation_evolution.label">
+                <source>report.meetup_participation_evolution.label</source>
+                <target>Évolution de la participation aux meetups</target>
+            </trans-unit>
+            <trans-unit id="report.salary_satisfaction_evolution.label">
+                <source>report.salary_satisfaction_evolution.label</source>
+                <target>Évolution de la satisfaction de la rémunération</target>
+            </trans-unit>
+            <trans-unit id="report.speciality_evolution.label">
+                <source>report.speciality_evolution.label</source>
+                <target>Évolution des spécialités</target>
+            </trans-unit>
+            <trans-unit id="report.speciality.label">
+                <source>report.speciality.label</source>
+                <target>Distribution des spécialités</target>
+            </trans-unit>
+            <trans-unit id="report.experience_salary.label">
+                <source>report.experience_salary.label</source>
+                <target>Salaire en fonction de l'expérience</target>
+            </trans-unit>
+            <trans-unit id="report.variable_salary.label">
+                <source>report.variable_salary.label</source>
+                <target>Le variable, fréquent et incitatif ?</target>
+            </trans-unit>
+            <trans-unit id="report.company_type_salary.label">
+                <source>report.company_type_salary.label</source>
+                <target>Rémunération par secteur d'activité</target>
+            </trans-unit>
+            <trans-unit id="report.gender.label">
+                <source>report.gender.label</source>
+                <target>Salaire moyen par genre</target>
+            </trans-unit>
+            <trans-unit id="reportreport.gender_salary_evolution.label">
+                <source>report.gender_salary_evolution.label</source>
+                <target>Évolution du salaire moyen par genre</target>
+            </trans-unit>
+            <trans-unit id="reportreport.gender_count_evolution.label">
+                <source>report.gender_count_evolution.label</source>
+                <target>Évolution du nombre de réponses par genre</target>
+            </trans-unit>
+            <trans-unit id="report.company_size_salary.label">
+                <source>report.company_size_salary.label</source>
+                <target>Rémunération par taille d'entreprise</target>
+            </trans-unit>
+            <trans-unit id="report.view.department_code">
+                <source>report.view.department_code</source>
+                <target>Code département</target>
+            </trans-unit>
+            <trans-unit id="report.view.department_label">
+                <source>report.view.department_label</source>
+                <target>Nom département</target>
+            </trans-unit>
+            <trans-unit id="report.view.county_code">
+                <source>report.view.county_code</source>
+                <target>Code région</target>
+            </trans-unit>
+            <trans-unit id="report.view.county_label">
+                <source>report.view.county_label</source>
+                <target>Nom région</target>
+            </trans-unit>
+            <trans-unit id="report.view.response_number">
+                <source>report.view.response_number</source>
+                <target>Nombre de réponses</target>
+            </trans-unit>
+            <trans-unit id="report.view.response_percent">
+                 <source>report.view.response_percent</source>
+                 <target>Pourcentage de réponses</target>
+            </trans-unit>
+            <trans-unit id="report.view.company_size">
+                <source>report.view.company_size</source>
+                <target>Taille d'entreprise</target>
+            </trans-unit>
+            <trans-unit id="report.view.company_type">
+                <source>report.view.company_type</source>
+                <target>Type d'entreprise</target>
+            </trans-unit>
+            <trans-unit id="report.view.status">
+                <source>report.view.status</source>
+                <target>Statut</target>
+            </trans-unit>
+            <trans-unit id="report.view.experience">
+                <source>report.view.experience</source>
+                <target>Expérience</target>
+            </trans-unit>
+            <trans-unit id="report.view.salary">
+                <source>report.view.salary</source>
+                <target>Salaire</target>
+            </trans-unit>
+            <trans-unit id="report.view.gross_annual_salary">
+                <source>report.view.gross_annual_salary</source>
+                <target>Salaire brut fixe annuel</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.variable_annual_salary">
+                <source>report.view.variable_annual_salary</source>
+                <target>Salaire variable annuel</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.annual_salary">
+                <source>report.view.annual_salary</source>
+                <target>Salaire brut annuel (fixe + variable)</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.info_annual_salary">
+                <source>report.view.info_annual_salary</source>
+                <target>Le salaire indiqué est le salaire brut fixe et variable</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.leave_job">
+                <source>report.view.leave_job</source>
+                <target>Changement poste de cette année</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.experience_in_current_job">
+                <source>report.view.experience_in_current_job</source>
+                <target>Ancienneté dans l'entreprise</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.speciality">
+                <source>report.view.speciality</source>
+                <target>Spécialité</target>
+            </trans-unit>
+            <trans-unit id="report.view.other_framework">
+                <source>report.view.other_framework</source>
+                <target>Autre Framework ou CMS du marché</target>
+            </trans-unit>
+            <trans-unit id="report.speciality_salary.label">
+                <source>report.speciality_salary.label</source>
+                <target>Répartition du salaire par spécialité</target>
+            </trans-unit>
+            <trans-unit id="report.company_departement.unknown">
+                <source>report.company_departement.unknown</source>
+                <target>département inconnu</target>
+            </trans-unit>
+            <trans-unit id="report.company_county.unknown">
+                <source>report.company_county.unknown</source>
+                <target>région inconnue</target>
+            </trans-unit>
+            <trans-unit id="report.view.salary_satisfaction">
+                <source>report.view.salary_satisfaction</source>
+                <target>Satisfaction de la rémunération</target>
+            </trans-unit>
+            <trans-unit id="report.salary_satisfaction.label">
+                <source>report.salary_satisfaction.label</source>
+                <target>Satisfaction de la rémunération</target>
+            </trans-unit>
+            <trans-unit id="report.php-version.label">
+                <source>report.php_version.label</source>
+                <target>Versions de PHP utilisées</target>
+            </trans-unit>
+            <trans-unit id="report.php_version_evolution.label">
+                <source>report.php_version_evolution.label</source>
+                <target>Évolution des versions de PHP utilisées</target>
+            </trans-unit>
+            <trans-unit id="report.view.php_version">
+                <source>report.view.php_version</source>
+                <target>Version de PHP utilisée</target>
+            </trans-unit>
+            <trans-unit id="report.view.average_salary">
+                <source>report.view.average_salary</source>
+                <target>Salaire moyen</target>
+            </trans-unit>
+            <trans-unit id="report.os_developpment.label">
+                <source>report.os_developpment.label</source>
+                <target>Répartition par OS Principal</target>
+            </trans-unit>
+            <trans-unit id="report.view.os_developpment">
+                <source>report.view.os_developpment</source>
+                <target>OS de développement principal</target>
+            </trans-unit>
+            <trans-unit id="report.technological_watch.label">
+                <source>report.technological_watch.label</source>
+                <target>Faites-vous régulièrement de la veille technique ?</target>
+            </trans-unit>
+            <trans-unit id="report.view.technological_watch">
+                <source>report.view.technological_watch</source>
+                <target>Récurrence veille technique</target>
+            </trans-unit>
+            <trans-unit id="report.remote_usage.label">
+                <source>report.remote_usage.label</source>
+                <target>Répartition des télétravailleurs</target>
+            </trans-unit>
+            <trans-unit id="report.remote_usage_evolution.label">
+                <source>report.remote_usage_evolution.label</source>
+                <target>Évolution de la répartition des télétravailleurs</target>
+            </trans-unit>
+            <trans-unit id="report.view.remote_usage">
+                <source>report.view.remote_usage</source>
+                <target>Travaillez-vous en télétravail ?</target>
+            </trans-unit>
+            <trans-unit id="report.meetup_participation.label">
+                <source>report.meetup_participation.label</source>
+                <target>Participation à des meetups</target>
+            </trans-unit>
+            <trans-unit id="report.view.meetup_participation">
+                <source>report.view.meetup_participation</source>
+                <target>Participation à un meetup</target>
+            </trans-unit>
+
+            <trans-unit id="report.training_participation.label">
+                <source>report.training_participation.label</source>
+                <target>Participation à une formation</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.training_participation">
+                <source>report.view.training_participation</source>
+                <target>Avec vous récemment participé à une formation ?</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.training_impact">
+                <source>report.view.training_impact</source>
+                <target>Cette formation à t-elle eut un impact sur votre rémunération ?</target>
+            </trans-unit>
+
+            <trans-unit id="report.php_documentation_report.label">
+                <source>report.php_documentation_report.label</source>
+                <target>Utilisation de la documentation de PHP</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.php_documentation_source">
+                <source>report.view.php_documentation_source</source>
+                <target>Si vous avez besoin d'information sur une fonctionnalité en PHP vous utilisez</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.french_php_documentation_quality">
+                <source>report.view.french_php_documentation_quality</source>
+                <target>Vous trouvez que la qualité de la documentation en français de PHP est</target>
+            </trans-unit>
+
+            <trans-unit id="report.contract_work_duration_report.label">
+                <source>report.contract_work_duration_report.label</source>
+                <target>Durée de travail contractuelle</target>
+            </trans-unit>
+
+            <trans-unit id="report.work_method_report.label">
+                <source>report.work_method_report.label</source>
+                <target>Méthodologie de travail</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.work_method">
+                <source>report.view.work_method</source>
+                <target>Méthodologie de travail</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.contract_work_duration">
+                <source>report.view.contract_work_duration</source>
+                <target>Durée de travail contractuelle</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

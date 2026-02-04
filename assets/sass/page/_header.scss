@@ -1,0 +1,29 @@
+.navbar-brand {
+  font-family: $font-family-title;
+  font-weight: 500;
+  padding: 20px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+
+  display: block;
+  float: left;
+
+  &.barometre {
+    height: 30px;
+    margin: 0 5px;
+  }
+
+  &.afup {
+    height: 40px;
+    margin: 10px 20px;
+  }
+
+  &.jdn {
+    height: 40px;
+    margin: 5px 20px;
+  }
+}
