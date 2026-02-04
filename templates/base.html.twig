@@ -11,11 +11,14 @@
     {% block meta %}
         <meta name="description" content="{% block meta_description '' %}">
         <meta name="viewport" content="width=device-width">
-        <meta property="og:image" content="{{ grunt_asset('logos/og-image.png') }}" />
+        <meta property="og:image" content="{{ asset('logos/og-image.png') }}" />
     {% endblock meta %}
 
     {% block stylesheets %}
-        <link rel="stylesheet" href="{{ grunt_asset('css/main.css') }}" />
+        {# CSS compilé par SassBundle #}
+        <link rel="stylesheet" href="{{ asset('styles/app.scss') }}" />
+        {# Font Awesome via CDN #}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlXpbJ0zJgO2HqD8B28T4N7M8JQkbxFHpPe5LKFAggYtXtLSohQg0OUHB+wSH8G3T4S5DBzWBvyF4x8C0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {% endblock stylesheets %}
     <link rel="stylesheet" href="{{ global_menu_prefix }}/templates/site/css/global-menu.css" media="all" />
     {% block ga '' %}
@@ -30,7 +33,20 @@
 </div>
 {% block body '' %}
 {% block body_javascript %}
-    <script src="{{ grunt_asset('js/main.js') }}"></script>
+    {# Librairies legacy (ordre important) - D3 v7 est chargé via importmap #}
+    <script src="{{ asset('vendor/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap3/transition.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap3/dropdown.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap3/collapse.js') }}"></script>
+    <script src="{{ asset('vendor/highcharts.js') }}"></script>
+    <script src="{{ asset('vendor/highchartTable.min.js') }}"></script>
+    <script src="{{ asset('vendor/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('vendor/select2/fr.js') }}"></script>
+    <script src="{{ asset('vendor/tablesorter/jquery.tablesorter.min.js') }}"></script>
+    <script src="{{ asset('vendor/tablesorter/jquery.tablesorter.widgets.min.js') }}"></script>
+
+    {# AssetMapper - D3 v7 + scripts custom #}
+    {% block importmap %}{{ importmap('app') }}{% endblock %}
 {% endblock body_javascript %}
 {% include 'github_ribbon.twig' %}
 </body>

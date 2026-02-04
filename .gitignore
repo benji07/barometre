@@ -15,13 +15,16 @@
 /build/
 /bin/*
 !/bin/console
-/node_modules/
-/public/assets/
 /public/js/
-/assets/sass/vendor/
-/assets/sass/generated/
-/.sass-cache/
 /app/Resources/views/favicons/
 /docker/data
 /docker-compose.override.yml
 .php_cs.cache
+
+###> symfony/asset-mapper ###
+/public/assets/
+/assets/vendor/
+###< symfony/asset-mapper ###
+
+###> symfonycasts/sass-bundle ###
+###< symfonycasts/sass-bundle ###

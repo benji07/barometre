@@ -1,3 +1,5 @@
+const $ = window.jQuery;
+
 $(document).ready(function () {
     $('.filter-toggler', '.form-group').click(function (e) {
         var parentGroup = $(this).parents('.form-group');
@@ -9,3 +11,5 @@ $(document).ready(function () {
         e.preventDefault();
     });
 });
+
+export default {};

@@ -1,23 +1,28 @@
-.PHONY: vendors data_dirs cs-fix
+.PHONY: vendors data_dirs cs-fix assets
 
 CURRENT_UID ?= $(shell id -u)
 
 init:
 	make vendors
-	./node_modules/grunt-cli/bin/grunt
+	make assets
 	php bin/console doctrine:schema:update --force
 	php -d "memory_limit=-1" bin/console doctrine:fixtures:load --no-interaction
 
-vendors: node_modules vendor
+vendors: vendor
 
 vendor:
 	composer install
 
-node_modules:
-	npm install
+assets:
+	php bin/console sass:build
+	php bin/console importmap:install
 
-asset_install:
-	node_modules/grunt-cli/bin/grunt
+assets-watch:
+	php bin/console sass:build --watch
+
+assets-prod:
+	php bin/console sass:build
+	php bin/console asset-map:compile
 
 docker-up: data_dirs
 	docker-compose up -d db
@@ -36,5 +41,5 @@ docker-compose.override.yml:
 cs-fix:
 	docker run --rm -it -w=/app -v ${PWD}:/app oskarstark/php-cs-fixer-ga:latest
 
-deploy: node_modules asset_install
+deploy: assets-prod
 	php bin/console doctrine:migrations:migrate --env=prod --no-interaction

@@ -1,0 +1,13 @@
+@use "sass:math";
+
+.menu {
+  padding-bottom: math.div($grid-gutter-width, 2);
+  padding-top: math.div($grid-gutter-width, 2);
+  position: fixed;
+}
+
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  .menu {
+    position: static;
+  }
+}

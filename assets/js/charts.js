@@ -1,3 +1,5 @@
+const $ = window.jQuery;
+
 $(document).ready(function () {
 
     $('table.highchart')
@@ -92,3 +94,4 @@ $(document).ready(function () {
         .highchartTable();
 });
 
+export default {};

@@ -1,3 +1,5 @@
+const $ = window.jQuery;
+
 $(document).ready(function () {
     $.extend($.tablesorter.themes.bootstrap, {
         // these classes are added to the table. To see other table classes available,
@@ -25,3 +27,5 @@ $(document).ready(function () {
         widgets : [ "uitheme"]
     });
 });
+
+export default {};

@@ -1,0 +1,19 @@
+@use "sass:math";
+
+.mg-top {
+  margin-top: math.div($grid-gutter-width, 2);
+}
+
+.mg-bottom {
+  margin-bottom: math.div($grid-gutter-width, 2);
+}
+
+.mg-right {
+  margin-right: math.div($grid-gutter-width, 2);
+}
+
+.mg-left {
+  margin-left: math.div($grid-gutter-width, 2);
+}
+
+
